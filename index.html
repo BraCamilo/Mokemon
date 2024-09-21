@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mokemon</title>
+    <title>Pokemon</title>
 </head>
 <body>
-    <h1>¡Mokemon Juego de pelea entre monstruos de diferentes elementos!</h1>
+    <h1>¡Pokemon Juego de pelea entre diferentes pokemones!</h1>
     <h2>🔥 💧 🌱</h2>
 
+    <!--Usamos el atributo id para nombrar a la etiqueta y de esta forma pueda ser llamada desde cualquier otro lado-->
     <section id="selcionar mascota">
-        <h3>Selecciona a una de tus mascotas</h3>
+        <h3>Selecciona a una de tu pokemon</h3>
+        <!--El tipo de dato "radio" no permite habilitar un botón de opción. Se selecciona uno de varios.
+        Al seleccionar un boton podremos hacer que los demas se desselecionen nombre a más de una etiqueta con la misma clase, o mismo grupo-->
+        <input type="radio" name="mascota" id="Hipodoge">
+        <label for="Hipodoge">Hipodoge</label>
+
+        <input type="radio" name="mascota" id="Capipero">
+        <label for="Capipero">Capipero</label>
+
+        <input type="radio" name="mascota" id="Ratigueya">
+        <label for="Ratigueya">Ratigueya</label>
+
+        <input type="radio" name="mascota" id="Langostelvis">
+        <label for="Langostelvis">Langostelvis</label>
+
+        <input type="radio" name="mascota" id="Tucapalma">
+        <label for="Tucapalma">Tucapalma</label>
+
+        <input type="radio" name="mascota" id="Pydos">
+        <label for="Pydos">Pydos</label>
+        <!--Acompañado los input de la etiqueta label para así mostrar al usuario lo que esta seleccionando.-->
 
         <Button>Te elijo a ti</Button>
     </section>
