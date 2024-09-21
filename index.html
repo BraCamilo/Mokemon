@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
+    
 </head>
 <body>
     <h1>¡Pokemon Juego de pelea entre diferentes pokemones!</h1>
@@ -33,7 +34,7 @@
         <label for="Pydos">Pydos</label>
         <!--Acompañado los input de la etiqueta label para así mostrar al usuario lo que esta seleccionando.-->
 
-        <Button>Te elijo a ti</Button>
+        <Button id="boton-mascota">Te elijo a ti</Button>
     </section>
 
     <section id="Selcionar ataque">
@@ -43,9 +44,9 @@
         <p>La mascota del enemigo tiene <span>3</span> vidas</p>
         
         <p>
-            <button>Fuego 🔥</button>
-            <button>Agua 💧</button>
-            <button>Tierra 🌱</button>
+            <button id="boton-fuego">Fuego 🔥</button>
+            <button id="boton-agua">Agua 💧</button>
+            <button id="boton-tierra">Tierra 🌱</button>
         </p>
     </section>
     <section id="mensajes">
@@ -53,8 +54,10 @@
     </section>
 
     <section id="reiniciar">
-        <button>Reiniciar</button>
+        <button id="boton-reiniciar">Reiniciar</button>
     </section>
+    
+    <script src="/script/script.js"></script>
     
 </body>
 </html>
