@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
-    <script src="/script/script.js"></script>    
+    <script src="/Mokemon/script/script.js"></script>    
 </head>
 <body>
     <h1>¡Pokemon Juego de pelea entre diferentes pokemones!</h1>
@@ -21,15 +21,6 @@
         <input type="radio" name="mascota" id="Capipero">
         <label for="Capipero">Capipero</label>
 
-        <input type="radio" name="mascota" id="Ratigueya">
-        <label for="Ratigueya">Ratigueya</label>
-
-        <input type="radio" name="mascota" id="Langostelvis">
-        <label for="Langostelvis">Langostelvis</label>
-
-        <input type="radio" name="mascota" id="Tucapalma">
-        <label for="Tucapalma">Tucapalma</label>
-
         <input type="radio" name="mascota" id="Pydos">
         <label for="Pydos">Pydos</label>
         <!--Acompañado los input de la etiqueta label para así mostrar al usuario lo que esta seleccionando.-->
@@ -40,8 +31,8 @@
     <section id="Selcionar ataque">
         <h3>Selecciona un ataque</h3>
 
-        <p>Tu mascota tiene 3 vidas</p>
-        <p>La mascota del enemigo tiene <span>3</span> vidas</p>
+        <p>Tu mascota <span id="mascotaJugador"></span> tiene <span>3</span> vidas</p>
+        <p>La mascota <span id="mascotaEnemigo"></span> del enemigo tiene <span>3</span> vidas</p>
         
         <p>
             <button id="boton-fuego">Fuego 🔥</button>
