@@ -1,6 +1,8 @@
 /**Aca estamos usando el metodo addEvenListener con el atributo no de que haga click, si no que primeramente cargue
 Esto permite que podamos crear una funsión que nos comenzará a ejecutar todo en el orden que deseamos sin la necesidad
 de mover de lugar nuestro script en html**/
+let ataqueJugador
+let ataqueEnemigo
 window.addEventListener("load", iniciarJuego)
 
 //FUNCIONES
@@ -16,21 +18,49 @@ function iniciarJuego() {
     let botonTierra = document.getElementById("boton-tierra")
     botonTierra.addEventListener("click", ataqueTierra)
     let ataqueSeleccionado = document.getElementById(`AtaqueSeleccionado`)
+    let ataqueEnemigoSeleccionado = document.getElementById(`ataqueEnemingo`)
 
+    //Inicio funsiones de ataques del jugador
     function ataqueFuego(){
         ataqueJugador = `Fuego`
         ataqueSeleccionado.innerHTML = `Fuego`
+        ataqueAleatorioEnemigo()
     }
-    function ataqueAgua(){
+    function ataqueAgua() {
         ataqueJugador = `Agua`
         ataqueSeleccionado.innerHTML = `Agua`
+        ataqueAleatorioEnemigo()
     }
-    function ataqueTierra(){
+    function ataqueTierra() {
         ataqueJugador = `Tierra`
         ataqueSeleccionado.innerHTML = `Tierra`
+        ataqueAleatorioEnemigo()
     }
+    //Fin de funsiones de ataques del jugador
+
+    //Inicio funsiones de ataque del enemigo
+    function ataqueAleatorioEnemigo() {
+        //1 = Hipodoge(agua), 2 = Capipepo(tierra) y 3 = Pydos(fuego)
+        let ataqueAleatorio = aleatorio(1, 3)
+
+        if (ataqueAleatorio == 1) {
+            ataqueEnemigo = `Agua`
+            ataqueEnemigoSeleccionado.innerHTML = `Agua`
+        }else if(ataqueAleatorio == 2){
+            ataqueEnemigo = `Tierra`
+            ataqueEnemigoSeleccionado.innerHTML = `Tierra`
+        }else{
+            ataqueEnemigo = `Fuego`
+            ataqueEnemigoSeleccionado.innerHTML = `Fuego`
+        }
+    }
+    function aleatorio(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
+
 }
 //Fin de funsion iniciar juego
+
 
 //Inicio de funsion seleccionar mascota de jugador
 function seleccionarMascotaJugador() {
@@ -51,16 +81,15 @@ function seleccionarMascotaJugador() {
     } else {
         alert("Selecciona una Mascota")
     }
-//Fin de funsion seleccionar mascota jugador
 
 //Inicio funsion mascota de enemigo
     function seleccionarMascotaEnemigo() {
-        let ataqueAleatorio = aleatorio(1, 3)
+        let mascotaAleatorio = aleatorio(1, 3)
         let spanMascotaEnemigo = document.getElementById("mascotaEnemigo")
 
-        if (ataqueAleatorio == 1) {
+        if (mascotaAleatorio == 1) {
             spanMascotaEnemigo.innerHTML = "Hipodoge"
-        } else if (ataqueAleatorio == 2) {
+        } else if (mascotaAleatorio == 2) {
             spanMascotaEnemigo.innerHTML = "Capipepo"
         } else {
             spanMascotaEnemigo.innerHTML = "Pydos"
@@ -71,15 +100,8 @@ function seleccionarMascotaJugador() {
     }
 //Fin funsion mascota de enemigo
 
-//Inicio funsion ataque a enemigo
-function ataqueJugador(){
-
-}
-
-//Fin funsion ataque a enemigo
-
-
 //Juego en front
     seleccionarMascotaEnemigo()
 
 }
+//Fin de funsion seleccionar mascota jugador
