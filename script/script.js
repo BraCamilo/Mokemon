@@ -42,9 +42,3 @@ function seleccionarMascotaJugador() {
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 }
-
-
-/**Aca estamos usando el metodo addEvenListener con el atributo no de que haga click, si no que primeramente cargue
-Esto permite que podamos crear una funsión que nos comenzará a ejecutar todo en el orden que deseamos sin la necesidad
-de mover de lugar nuestro script en html**/
-window.addEventListener("load", iniciarJuego)
