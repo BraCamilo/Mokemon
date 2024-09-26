@@ -23,18 +23,18 @@ function iniciarJuego() {
     //Inicio funsiones de ataques del jugador
     function ataqueFuego(){
         ataqueJugador = `Fuego`
-        ataqueSeleccionado.innerHTML = `Fuego`
         ataqueAleatorioEnemigo()
+        
     }
     function ataqueAgua() {
         ataqueJugador = `Agua`
-        ataqueSeleccionado.innerHTML = `Agua`
         ataqueAleatorioEnemigo()
+        
     }
     function ataqueTierra() {
         ataqueJugador = `Tierra`
-        ataqueSeleccionado.innerHTML = `Tierra`
         ataqueAleatorioEnemigo()
+        
     }
     //Fin de funsiones de ataques del jugador
 
@@ -45,21 +45,38 @@ function iniciarJuego() {
 
         if (ataqueAleatorio == 1) {
             ataqueEnemigo = `Agua`
-            ataqueEnemigoSeleccionado.innerHTML = `Agua`
         }else if(ataqueAleatorio == 2){
             ataqueEnemigo = `Tierra`
-            ataqueEnemigoSeleccionado.innerHTML = `Tierra`
         }else{
             ataqueEnemigo = `Fuego`
-            ataqueEnemigoSeleccionado.innerHTML = `Fuego`
         }
+        nuevoParrafoDeLucha()
     }
+
     function aleatorio(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min)
     }
 
 }
 //Fin de funsion iniciar juego
+
+//Inicio funsión agregar parrafor a document que diga los ataque usados
+function nuevoParrafoDeLucha() {
+    let seccionMensajes = document.getElementById("mensajes")//Variable que usaremos para manipular el Dom
+    let newP = document.createElement("p")//Variable que usaremos para crear el nuevo texto dentro de la variables que manipula el Dom
+
+    newP.innerHTML = "Tu mascota ataco con " + ataqueJugador + " Y tu enemigo ataco con: " + ataqueEnemigo + "."
+    seccionMensajes.appendChild(newP)
+/**Expicación de funsión. 
+ * 1. Se da selccion a la etiqueta en nuestro html en la que queremos que se ingrese nuestro nuevo parrafo.
+ * 2. Se establece la variable en la que usaremos el método de crear una etiqueta, que este caso es "p"
+ * 3. Usamos el metodo innerHTML para modificar el contenido de la etiqueta p creada en el paso anterior
+ * 4. Indicamos con el medoto appenchild que ingrese lo que hemos creado en newP.innerHTML y así poderlo ver en el Dom
+*/
+
+    
+}
+//Fin funsión agregar parrafor a document que diga los ataque usados
 
 
 //Inicio de funsion seleccionar mascota de jugador
