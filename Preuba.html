@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon</title>
+    <title>PokemonPrueba</title>
+    <style>
+        #tituloPrincipal {
+            width: auto;
+            height: 10vh;
+            background-color: gray;
+            padding: 20px;
+        }
+    
+        #selcionar-mascota {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .mascota {
+            margin: 10px;
+            background-color: bisque;
+            box-sizing: border-box;
+            padding: 5px;
+            border: 1px solid gray;
+        }
+    </style>
     <script>
         let ataqueJugador;
         let ataqueEnemigo;
@@ -42,7 +64,7 @@
                 let selectionSeleccionarAtaque = document.getElementById("Selcionar ataque")
                 selectionSeleccionarAtaque.style.display = `block`
 
-                let selectionSeleccionarMascota = document.getElementById("selcionar mascota")
+                let selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
                 selectionSeleccionarMascota.style.display = `none`
 
                 if (inputHipodoge.checked) {
@@ -134,14 +156,12 @@
 
     </script>
 </head>
-
 <body>
-    <h1>¡Pokemon Juego de pelea entre diferentes pokemones!</h1>
-    <h2>🔥 💧 🌱</h2>
+    <h1 id="tituloPrincipal">¡Pokemon Juego de pelea entre diferentes pokemones! 🔥 💧 🌱</h1>
 
     <!--Usamos el atributo id para nombrar a la etiqueta y de esta forma pueda ser llamada desde cualquier otro lado-->
-    <section id="selcionar mascota">
-        <h3>Selecciona a una de tu pokemon</h3>
+    <section id="selcionar-mascota">
+        <h3>Selecciona a una mascota</h3>
         <!--El tipo de dato "radio" no permite habilitar un botón de opción. Se selecciona uno de varios.
         Al seleccionar un boton podremos hacer que los demas se desselecionen nombre a más de una etiqueta con la misma clase, o mismo grupo-->
         <input type="radio" name="mascota" id="Hipodoge">
@@ -162,7 +182,7 @@
 
         <p>Tu mascota <span id="mascotaJugador"></span> tiene <span id="VidasJugador">3</span> vidas</p>
         <p>La mascota <span id="mascotaEnemigo"></span> del enemigo tiene <span id="VidasEnemigo">3</span> vidas</p>
-
+        
         <p>
             <button id="boton-fuego">Fuego 🔥</button>
             <button id="boton-agua">Agua 💧</button>
@@ -171,13 +191,12 @@
 
         <p id="textoDeLucha"></p>
 
-        <section id="mensajes"></section>
+    <section id="mensajes"></section>
 
-        <section id="reiniciar">
-            <button id="boton-reiniciar">Reiniciar</button>
-        </section>
+    <section id="reiniciar">
+        <button id="boton-reiniciar">Reiniciar</button>
+    </section>
 
-
+    
 </body>
-
 </html>

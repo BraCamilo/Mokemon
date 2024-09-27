@@ -202,7 +202,7 @@ function seleccionarMascotaJugador() {
             let selectionSeleccionarAtaque = document.getElementById("Selcionar ataque")
             selectionSeleccionarAtaque.style.display = `block`
 
-            let selectionSeleccionarMascota = document.getElementById("selcionar mascota")
+            let selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
             selectionSeleccionarMascota.style.display = `none`
 
             if (inputHipodoge.checked) {

@@ -1,0 +1,21 @@
+#tituloPrincipal{
+    width: auto;
+    height: 10vh;
+    background-color: gray;
+    padding: 20px;
+}
+
+#selcionar-mascota{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mascota{
+    margin: 10px;
+    background-color: bisque;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid gray;
+}
