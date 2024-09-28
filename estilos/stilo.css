@@ -1,29 +1,80 @@
-#tituloPrincipal{
-    width: auto;
-    height: 10vh;
-    background-color: gray;
-    padding: 20px;
+@import "/estilos/color.css";
+
+
+body{
+    background-color: var(--backgroundPrincipal);
 }
 
-#selcionar-mascota{
+
+#tituloPrincipal{
+    width: auto;
+    height: 10vh;    
+    padding: 20px;
+    color: var(--Letra);
+    text-align: center;
+    font-size: 32px;
+}
+#subTitulo{
+    margin: 20px;
+}
+
+.opciones img{
+    width: 80px;
+}
+
+
+#selcionar-mascota {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    color: var(--Letra);
 }
 
-.mascota{
+.boton-HipoCapiPy{
     margin: 10px;
-    background-color: bisque;
+    padding: 10;
+    box-sizing: border-box;
+       
+}
+.opciones input{
+    display: none;
+}
+
+.opciones{
+    display: flex;
+    gap: 10px;
+}
+
+.mascota {
+    display: flex;
+    display: block;
+    margin: 10px;
+    background-color: var(--botones);
     box-sizing: border-box;
     padding: 5px;
-    border: 1px solid gray;
+    border: 1px solid var(--bordes);
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    /**border-top-left-radius: 30px;
+    border-top-right-radius: 30px;*/
+    box-shadow: 2px 2px 2px black;
+}
+.mascota:hover{
+    background-color: var(--seleccion);
+}
+.mascota:active{
+    background-color: var(--seleccion);
 }
 
-#boton-mascota{
+#boton-mascota {    
     margin: 10px;
-    background-color: wheat;
+    background-color: var(--botones);
     box-sizing: border-box;
     padding: 10px;
-    border: 1px solid rgb(37, 26, 7);
+    border: 1px solid var(--bordes);
+    color: white;
 }

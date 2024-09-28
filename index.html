@@ -10,18 +10,36 @@
 <body>
     <!--Usamos el atributo id para nombrar a la etiqueta y de esta forma pueda ser llamada desde cualquier otro lado-->
     <section id="selcionar-mascota">
-        <h1 id="tituloPrincipal">¡Pokemon Juego de pelea entre diferentes pokemones! 🔥 💧 🌱</h1>
-        <h3>Selecciona a una mascota</h3>
+        <h1 id="tituloPrincipal">Mokepon</h1>
+        <h3 class="subTitulo">Selecciona a una mascota</h3>
         <!--El tipo de dato "radio" no permite habilitar un botón de opción. Se selecciona uno de varios.
+
         Al seleccionar un boton podremos hacer que los demas se desselecionen nombre a más de una etiqueta con la misma clase, o mismo grupo-->
-        <input type="radio" name="mascota" id="Hipodoge">
-        <label class="mascota" for="Hipodoge">Hipodoge</label>
-
-        <input type="radio" name="mascota" id="Capipero">
-        <label class="mascota" for="Capipero">Capipero</label>
-
-        <input type="radio" name="mascota" id="Pydos">
-        <label class="mascota" for="Pydos">Pydos</label>
+        <div class="opciones">
+            <section class= "boton-HipoCapiPy" id="boton-hipodoge">
+                <input type="radio" name="mascota" id="Hipodoge">
+                <label class="mascota" for="Hipodoge">
+                    <p>Hipodoge</p>
+                    <img src="/assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen de Hipodoge">
+                </label>
+            </section>
+    
+            <section class= "boton-HipoCapiPy" id="boton-Capipepo">
+                <input type="radio" name="mascota" id="Capipero">
+                <label class="mascota" for="Capipero">
+                    <p>Capipepo</p>
+                    <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen de Capipepo">
+                </label>
+            </section>
+    
+            <section class= "boton-HipoCapiPy" id="boton-pydos">
+                <input type="radio" name="mascota" id="Pydos">
+                <label class="mascota" for="Pydos">
+                    <p>Pydos</p>
+                    <img src="/assets/mokepons_mokepon_ratigueya_attack.png" alt="Imagen de Pydos">
+                </label>
+            </section>
+        </div>
         <!--Acompañado los input de la etiqueta label para así mostrar al usuario lo que esta seleccionando.-->
 
         <Button id="boton-mascota">Te elijo a ti</Button>
