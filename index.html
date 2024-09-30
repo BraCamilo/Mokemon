@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
-    <script src="/script/script.js"></script>    
+    <script src="/script/script.js"></script>
     <link rel="stylesheet" href="/estilos/stilo.css">
 </head>
+
 <body>
     <!--Usamos el atributo id para nombrar a la etiqueta y de esta forma pueda ser llamada desde cualquier otro lado-->
     <section id="selcionar-mascota">
@@ -16,23 +18,23 @@
 
         Al seleccionar un boton podremos hacer que los demas se desselecionen nombre a más de una etiqueta con la misma clase, o mismo grupo-->
         <div class="opciones">
-            <section class= "boton-HipoCapiPy" id="boton-hipodoge">
+            <section class="boton-HipoCapiPy" id="boton-hipodoge">
                 <input type="radio" name="mascota" id="Hipodoge">
                 <label class="mascota" for="Hipodoge">
                     <p>Hipodoge</p>
                     <img src="/assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen de Hipodoge">
                 </label>
             </section>
-    
-            <section class= "boton-HipoCapiPy" id="boton-Capipepo">
+
+            <section class="boton-HipoCapiPy" id="boton-Capipepo">
                 <input type="radio" name="mascota" id="Capipero">
                 <label class="mascota" for="Capipero">
                     <p>Capipepo</p>
                     <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen de Capipepo">
                 </label>
             </section>
-    
-            <section class= "boton-HipoCapiPy" id="boton-pydos">
+
+            <section class="boton-HipoCapiPy" id="boton-pydos">
                 <input type="radio" name="mascota" id="Pydos">
                 <label class="mascota" for="Pydos">
                     <p>Pydos</p>
@@ -41,31 +43,32 @@
             </section>
         </div>
         <!--Acompañado los input de la etiqueta label para así mostrar al usuario lo que esta seleccionando.-->
-
         <Button id="boton-mascota">Te elijo a ti</Button>
     </section>
 
-    <section id="Selcionar ataque">
-        <h1 id="tituloPrincipal">¡Pokemon Juego de pelea entre diferentes pokemones! 🔥 💧 🌱</h1>
+    <section id="Selcionar-ataque">
+        <h1 id="tituloPrincipal">Mokepon</h1>
+
         <h3>Selecciona un ataque</h3>
+        <section id="reiniciar">
+            <button id="boton-reiniciar">Reiniciar</button>
+        </section>
 
-        <p>Tu mascota <span id="mascotaJugador"></span> tiene <span id="VidasJugador">3</span> vidas</p>
-        <p>La mascota <span id="mascotaEnemigo"></span> del enemigo tiene <span id="VidasEnemigo">3</span> vidas</p>
-        
-        <p>
-            <button id="boton-fuego">Fuego 🔥</button>
-            <button id="boton-agua">Agua 💧</button>
-            <button id="boton-tierra">Tierra 🌱</button>
-        </p>
-
-        <p id="textoDeLucha"></p>
-
-    <section id="mensajes"></section>
-
-    <section id="reiniciar">
-        <button id="boton-reiniciar">Reiniciar</button>
+        <section id="seccionDeLucha">
+            <div id="botonesDeAtaque">
+                <button id="boton-fuego" class="boton-ataque">Fuego 🔥</button>
+                <button id="boton-agua" class="boton-ataque">Agua 💧</button>
+                <button id="boton-tierra" class="boton-ataque">Tierra 🌱</button>
+            </div>
+    
+            <div id="Contador-de-vidas">
+                <p>Tu mascota <span id="mascotaJugador"></span> tiene <span id="VidasJugador">3</span> vidas</p>
+                <p>La mascota <span id="mascotaEnemigo"></span> del enemigo tiene <span id="VidasEnemigo">3</span> vidas</p>
+                <section id="mensajes"></section>
+            </div>
+        </section>
     </section>
 
-    
 </body>
+
 </html>

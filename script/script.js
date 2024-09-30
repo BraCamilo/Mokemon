@@ -175,7 +175,7 @@ function seleccionarMascotaJugador() {
     window.addEventListener("load", iniciarJuego)
     
     function iniciarJuego() {
-        let selectionSeleccionarAtaque = document.getElementById("Selcionar ataque")
+        let selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
         selectionSeleccionarAtaque.style.display = `none`
 
 
@@ -199,8 +199,8 @@ function seleccionarMascotaJugador() {
         botonReiniciar.addEventListener("click", reiniciar);
     
         function seleccionarMascotaJugador() {
-            let selectionSeleccionarAtaque = document.getElementById("Selcionar ataque")
-            selectionSeleccionarAtaque.style.display = `block`
+            let selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
+            selectionSeleccionarAtaque.style.display = `flex`
 
             let selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
             selectionSeleccionarMascota.style.display = `none`

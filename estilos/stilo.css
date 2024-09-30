@@ -2,7 +2,8 @@
 
 
 body{
-    background-color: var(--backgroundPrincipal);
+    background-image: url(/assets/Fondo\ de\ pantalla.jpg);
+    background-size:cover;
 }
 
 
@@ -12,7 +13,7 @@ body{
     padding: 20px;
     color: var(--Letra);
     text-align: center;
-    font-size: 32px;
+    font-size: 50px;
 }
 #subTitulo{
     margin: 20px;
@@ -50,7 +51,6 @@ body{
     display: flex;
     display: block;
     margin: 10px;
-    background-color: var(--botones);
     box-sizing: border-box;
     padding: 5px;
     border: 1px solid var(--bordes);
@@ -78,3 +78,216 @@ body{
     border: 1px solid var(--bordes);
     color: white;
 }
+#boton-mascota:hover{
+    background-color: var(--seleccion);
+}
+
+#Selcionar-ataque{
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.boton-ataque{
+    background-color: var(--botones);
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    color: white;
+    box-shadow: 2px 2px 2px black;
+    
+}
+#boton-fuego:hover{
+    background-color: rgba(255, 0, 0, 0.59);
+}
+#boton-agua:hover{
+    background-color: aqua;
+    color: black;
+}
+#boton-tierra:hover{
+    background-color: #604a33;
+}
+
+#seccionDeLucha{
+    display: flex;
+    align-items: center;
+    width:max-content;
+    height: max-content;
+    padding: 20px;
+    margin: 20px;
+    color: white;
+}
+
+#seccionDeLucha, botonesDeAtaque {
+    display: flex;
+    justify-content:center;
+    text-align:center;
+
+}
+#seccionDeLucha, Contador-de-vidas{
+    display: flex;
+    justify-content: flex-start;
+    
+    
+}
+
+
+
+/*mportación de Estilos
+CSS
+@import "/estilos/color.css";
+Usa el código con precaución.
+
+Importación de archivo: Esta línea importa el archivo CSS "color.css" ubicado en la carpeta "estilos". Esto permite reutilizar estilos definidos en ese archivo en este código.
+Estilos para el Elemento body
+CSS
+body {
+    background-color: var(--backgroundPrincipal);
+}
+Usa el código con precaución.
+
+Color de fondo: Establece el color de fondo del cuerpo principal de la página utilizando la variable CSS --backgroundPrincipal. El valor de esta variable probablemente se define en el archivo "color.css".
+Estilos para el Título Principal
+CSS
+#tituloPrincipal {
+    width: auto;
+    height: 10vh;
+    padding: 20px;
+    color: var(--Letra);
+    text-align: center;
+    font-size: 32px;
+}
+Usa el código con precaución.
+
+Ancho y alto: Establece el ancho y alto del título principal. El ancho se ajusta automáticamente al contenido, y el alto se establece en el 10% de la altura de la ventana gráfica.
+Relleno: Agrega un espacio interior de 20 píxeles en todos los lados del título.
+Color: Establece el color del texto del título utilizando la variable --Letra.
+Alineación: Alinea el texto del título al centro.
+Tamaño de fuente: Establece el tamaño de fuente del título en 32 píxeles.
+Estilos para el Subtítulo
+CSS
+#subTitulo {
+    margin: 20px;
+}
+Usa el código con precaución.
+
+Margen: Agrega un margen de 20 píxeles en todos los lados del subtítulo.
+Estilos para las Imágenes dentro de .opciones
+CSS
+.opciones img {
+    width: 80px;
+}
+Usa el código con precaución.
+
+Ancho de imagen: Establece el ancho de las imágenes dentro de los elementos con la clase .opciones en 80 píxeles.
+Estilos para el Contenedor de Selección de Mascotas
+CSS
+#selcionar-mascota {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--Letra);
+}
+Usa el código con precaución.
+
+Display: Establece el elemento como un contenedor de flexbox.
+Justificación: Alinea los elementos dentro del contenedor al centro horizontalmente.
+Dirección: Ordena los elementos en una columna.
+Alineación: Alinea los elementos al centro verticalmente.
+Color: Establece el color del texto dentro del contenedor utilizando la variable --Letra.
+Estilos para el Botón HipoCapiPy
+CSS
+.boton-HipoCapiPy {
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+Usa el código con precaución.
+
+Margen y relleno: Agrega márgenes y rellenos de 10 píxeles en todos los lados del botón.
+Box-sizing: Establece el modelo de tamaño de la caja en "border-box", lo que significa que el padding y el border se incluyen en el ancho y alto especificados.
+Estilos para los Inputs de Selección
+CSS
+.opciones input {
+    display: none;
+}
+Usa el código con precaución.
+
+Visibilidad: Oculta los elementos de entrada de tipo input dentro de los elementos con la clase .opciones.
+Estilos para las Opciones de Mascota
+CSS
+.opciones {
+    display: flex;
+    gap: 10px;
+}
+Usa el código con precaución.
+
+Display: Establece el elemento como un contenedor de flexbox.
+Gap: Agrega un espacio de 10 píxeles entre los elementos dentro del contenedor.
+Estilos para las Mascotas
+CSS
+.mascota {
+    display: block;
+    margin: 10px;
+    background-color: var(--botones);
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid var(--bordes);
+    color: white;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+}
+Usa el código con precaución.
+
+Display: Establece el elemento como un bloque.
+Margen: Agrega un margen de 10 píxeles en todos los lados de la mascota.
+Color de fondo: Establece el color de fondo de la mascota utilizando la variable --botones.
+Box-sizing: Establece el modelo de tamaño de la caja en "border-box".
+Relleno y borde: Agrega un relleno de 5 píxeles y un borde de 1 píxel sólido utilizando la variable --bordes.
+Color de texto: Establece el color del texto en blanco.
+Ancho y alto: Ajusta el ancho y alto de la mascota al contenido.
+Alineación de texto: Alinea el texto al centro.
+Radio de borde: Establece el radio de borde de la mascota en 10 píxeles.
+Sombra de caja: Agrega una sombra de caja de 2 píxeles en todos los lados de la mascota.
+Estilos para las Mascotas al Hover y al Click
+CSS
+.mascota:hover {
+    background-color: var(--seleccion);
+}
+.mascota:active {
+    background-color: var(--seleccion);
+}
+Usa el código con precaución.
+
+Hover y click: Cambia el color de fondo de la mascota al pasar el cursor sobre ella o al hacer clic en ella, utilizando la variable --seleccion.
+Estilos para el Botón de Selección de Mascota
+CSS
+#boton-mascota {
+    margin: 10px;
+    background-color: var(--botones);
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid var(--bordes);
+    color: white;
+}
+Usa el código con precaución.
+
+Margen, color de fondo, box-sizing, relleno y borde: Establece los mismos estilos que para las mascotas.
+Estilos para el Botón al Hover
+CSS
+#boton-mascota:hover {
+    background-color: var(--seleccion);
+}
+Usa el código con precaución.
+
+Hover: Cambia el color de fondo del botón al pasar el cursor sobre él, utilizando la variable --seleccion.
+Nota: La mayoría de los estilos utilizan variables CSS para definir colores y otros valores. Estas variables probablemente se definen en el archivo "color.css" importado al principio.*/

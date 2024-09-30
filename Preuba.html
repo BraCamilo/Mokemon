@@ -5,26 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokemonPrueba</title>
     <style>
+    
+    
+        body {
+            background-color: var(--backgroundPrincipal);
+        }
+    
+    
         #tituloPrincipal {
             width: auto;
             height: 10vh;
-            background-color: gray;
             padding: 20px;
+            color: var(--Letra);
+            text-align: center;
+            font-size: 32px;
         }
+    
+        #subTitulo {
+            margin: 20px;
+        }
+    
+        .opciones img {
+            width: 80px;
+        }
+    
     
         #selcionar-mascota {
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            color: var(--Letra);
+        }
+    
+        .boton-HipoCapiPy {
+            margin: 10px;
+            padding: 10;
+            box-sizing: border-box;
+    
+        }
+    
+        .opciones input {
+            display: none;
+        }
+    
+        .opciones {
+            display: flex;
+            gap: 10px;
         }
     
         .mascota {
+            display: flex;
+            display: block;
             margin: 10px;
-            background-color: bisque;
+            background-color: var(--botones);
             box-sizing: border-box;
             padding: 5px;
-            border: 1px solid gray;
+            border: 1px solid var(--bordes);
+            color: white;
+            width: fit-content;
+            height: fit-content;
+            text-align: center;
+            border-radius: 10px;
+            /**border-top-left-radius: 30px;
+        border-top-right-radius: 30px;*/
+            box-shadow: 2px 2px 2px black;
+        }
+    
+        .mascota:hover {
+            background-color: var(--seleccion);
+        }
+    
+        .mascota:active {
+            background-color: var(--seleccion);
+        }
+    
+        #boton-mascota {
+            margin: 10px;
+            background-color: var(--botones);
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid var(--bordes);
+            color: white;
+        }
+    
+        #boton-mascota:hover {
+            background-color: var(--seleccion);
+        }
+    
+        #Selcionar-ataque {
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+    
+        .boton-ataque {
+            background-color: var(--botones);
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            width: 200px;
+            height: 100px;
+            color: white;
+            box-shadow: 2px 2px 2px black;
+    
+        }
+    
+        #boton-fuego:hover {
+            background-color: rgba(255, 0, 0, 0.59);
+        }
+    
+        #boton-agua:hover {
+            background-color: aqua;
+            color: black;
+        }
+    
+        #boton-tierra:hover {
+            background-color: #604a33;
+        }
+    
+        #seccionDeLucha {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            height: max-content;
+            padding: 20px;
+            margin: 20px;
+            color: white;
+        }
+    
+        #seccionDeLucha,
+        botonesDeAtaque {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+    
+        }
+    
+        #seccionDeLucha,
+        Contador-de-vidas {
+            display: flex;
+            justify-content: flex-start;
+    
+    
         }
     </style>
     <script>
@@ -37,7 +163,7 @@
         window.addEventListener("load", iniciarJuego)
 
         function iniciarJuego() {
-            let selectionSeleccionarAtaque = document.getElementById("Selcionar ataque")
+            let selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
             selectionSeleccionarAtaque.style.display = `none`
 
 
@@ -61,8 +187,8 @@
             botonReiniciar.addEventListener("click", reiniciar);
 
             function seleccionarMascotaJugador() {
-                let selectionSeleccionarAtaque = document.getElementById("Selcionar ataque")
-                selectionSeleccionarAtaque.style.display = `block`
+                let selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
+                selectionSeleccionarAtaque.style.display = `flex`
 
                 let selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
                 selectionSeleccionarMascota.style.display = `none`
