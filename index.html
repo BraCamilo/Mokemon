@@ -49,9 +49,9 @@
     <section id="Selcionar-ataque">
         <h1 id="tituloPrincipal">Mokepon</h1>
 
-        <h3>Selecciona un ataque</h3>
+        <h3 class="subTitulo2">Selecciona un ataque</h3>
         <section id="reiniciar">
-            <button id="boton-reiniciar">Reiniciar</button>
+            <button id="boton-reiniciar">Reiniciar</button>            
         </section>
 
         <section id="seccionDeLucha">
@@ -62,10 +62,17 @@
             </div>
     
             <div id="Contador-de-vidas">
-                <p>Tu mascota <span id="mascotaJugador"></span> tiene <span id="VidasJugador">3</span> vidas</p>
-                <p>La mascota <span id="mascotaEnemigo"></span> del enemigo tiene <span id="VidasEnemigo">3</span> vidas</p>
-                <section id="mensajes"></section>
+                <div id="ataqueDelJugador"></div>
+                <div id="ataqueDelEnemigo"></div>
+                <!-- <section id="mensajes"></section> -->
             </div>
+            
+            <div>
+                <div id="resultado"></div>
+                <p class="parrafoDeVidas">Tu mascota <span id="mascotaJugador"> </span> tiene  <span id="VidasJugador"> 3 </span> vidas</p>
+                <p class="parrafoDeVidas">La mascota <span id="mascotaEnemigo"></span> del enemigo tiene <span id="VidasEnemigo">3</span> vidas</p>    
+            </div>
+            
         </section>
     </section>
 

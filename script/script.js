@@ -185,7 +185,6 @@ function seleccionarMascotaJugador() {
         const btnTierra = document.getElementById('boton-tierra');
         const spanVidasJugador = document.getElementById('VidasJugador');
         const spanVidasEnemigo = document.getElementById('VidasEnemigo');
-        const sectionMensajes = document.getElementById('mensajes');
         let inputHipodoge = document.getElementById("Hipodoge");
         let inputCapipero = document.getElementById("Capipero");
         let inputPydos = document.getElementById("Pydos");
@@ -261,9 +260,24 @@ function seleccionarMascotaJugador() {
         }
     
         function nuevoParrafo(resultado) {
-            const nuevoP = document.createElement('p');
-            nuevoP.textContent = `Tu mascota atacó con ${ataqueJugador} y el enemigo con ${ataqueEnemigo}. ${resultado}`;
-            sectionMensajes.appendChild(nuevoP);
+            const sectionMensajes = document.getElementById('resultado');
+            const ataqueDelEnemigo = document.getElementById("ataqueDelEnemigo")
+            const AtaqueDelJugador = document.getElementById("ataqueDelJugador")
+
+            const nuevoAtaqueDelJugador = document.createElement("p")
+            const nuevoAtaqueDelEnemigo = document.createElement("p")
+            let notificacion = document.createElement("p")
+
+            sectionMensajes.innerHTML = resultado
+            /* AtaqueDelJugador.innerHTML = nuevoAtaqueDelJugador
+            ataqueDelEnemigo.innerHTML = nuevoAtaqueDelEnemigo */
+
+            /* const nuevoP = document.createElement('p');
+            nuevoP.textContent = `Tu mascota atacó con ${ataqueJugador} y el enemigo con ${ataqueEnemigo}. ${resultado}`; */
+
+            sectionMensajes.appendChild(notificacion)
+            nuevoAtaqueDelJugador.appendChild(notificacion);
+            nuevoAtaqueDelEnemigo.appendChild(notificacion);
         }
     
         function verificarFinJuego() {
