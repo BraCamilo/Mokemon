@@ -45,17 +45,17 @@ body{
 .opciones{
     display: flex;
     gap: 10px;
+
 }
 
-.mascota {
-    
+.mascota {    
     display: block;
     margin: 10px;
     box-sizing: border-box;
     padding: 5px;
     border: 1px solid var(--bordes);
     color: white;
-    width: fit-content;
+    width:fit-content;
     height: fit-content;
     text-align: center;
     border-radius: 10px;
@@ -65,9 +65,14 @@ body{
 }
 .mascota:hover{
     background-color: var(--seleccion);
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
 }
-.mascota:active{
+input:checked + label{
     background-color: var(--seleccion);
+}
+.ImgMascota{
+    width: 250px;
 }
 
 #boton-mascota {    
@@ -164,7 +169,49 @@ body{
     background-color: rgba(112, 214, 214, 0.75);
 }
 
+#ataque{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    margin: 20px;
+    text-align: center;
+    padding: auto;
+    box-sizing: border-box;
 
+}
+
+/*Ediante este @ lo que estamos haciendo es comenzar a crear los lineamiento del como queremos que se vean
+en las pantallas nuetra pagina que comienza en 0px hasta 360 px*/
+@media screen and (max-width: 500px) {
+    /* Adjust styles for smaller screens */
+
+    #tituloPrincipal, #subTitulo, #subTitulo2 {
+        font-size: 24px;
+    }
+
+    .opciones {
+        flex-direction: column; /* Stack options vertically */
+    }
+
+    .boton-HipoCapiPy {
+        margin: 10px 0; /* Adjust margins for vertical stacking */
+    }
+
+    #botonesDeAtaque {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+
+    .boton-ataque {
+        width: 100%; /* Make buttons full width */
+    }
+
+    #ataque {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    #seccionDeLucha {
+        flex-direction: column; /* Stack sections vertically */
+    }
+}
 
 /*mportación de Estilos
 CSS

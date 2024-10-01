@@ -22,7 +22,7 @@
                 <input type="radio" name="mascota" id="Hipodoge">
                 <label class="mascota" for="Hipodoge">
                     <p>Hipodoge</p>
-                    <img src="/assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen de Hipodoge">
+                    <img class="ImgMascota" src="/assets/mokepons_mokepon_hipodoge_attack.png" alt="Imagen de Hipodoge">
                 </label>
             </section>
 
@@ -30,7 +30,7 @@
                 <input type="radio" name="mascota" id="Capipero">
                 <label class="mascota" for="Capipero">
                     <p>Capipepo</p>
-                    <img src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen de Capipepo">
+                    <img class="ImgMascota" src="/assets/mokepons_mokepon_capipepo_attack.png" alt="Imagen de Capipepo">
                 </label>
             </section>
 
@@ -38,7 +38,7 @@
                 <input type="radio" name="mascota" id="Pydos">
                 <label class="mascota" for="Pydos">
                     <p>Pydos</p>
-                    <img src="/assets/mokepons_mokepon_ratigueya_attack.png" alt="Imagen de Pydos">
+                    <img class="ImgMascota" src="/assets/mokepons_mokepon_ratigueya_attack.png" alt="Imagen de Pydos">
                 </label>
             </section>
         </div>
@@ -65,18 +65,20 @@
 
                 <!-- <section id="mensajes"></section> -->
             </div>
-            <div>
+            <div id="ataque">
                 <div>
+                    <h3>Tu</h3>
                     <p id="mascotaJugador"></p>
-                    <div id="ataqueDelJugador"></div>
                     <p class="parrafoDeVidas"></p>
+                    <div id="ataqueDelJugador"></div>
                     <p id="VidasJugador">3</P>
                 </div>
 
                 <div>
+                    <h3>Enemigo</h3>
                     <span id="mascotaEnemigo"></span>
-                    <div id="ataqueDelEnemigo"></div>
                     <p class="parrafoDeVidas"></p>
+                    <div id="ataqueDelEnemigo"></div>
                     <p id="VidasEnemigo">3</p>
                 </div>
             </div>
