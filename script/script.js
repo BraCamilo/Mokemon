@@ -1,14 +1,64 @@
+    let mokepones = []
     let ataqueJugador;
     let ataqueEnemigo;
     let vidasJugador = 3;
     let vidasEnemigo = 3;
     const tipos = ['Fuego', 'Agua', 'Tierra'];
+
+    class mokepon{
+        constructor(nombre, imagen, vida){
+            this.nombre = nombre
+            this.imagen = imagen
+            this.vida = vida
+            this.ataques = []
+        }
+    }
+
+    let Hipodoge = new mokepon("Hipodoge", '/assets/mokepons_mokepon_hipodoge_attack.png', 5)
+   
+
+    let Capipepo = new mokepon("Capipepo", '/assets/mokepons_mokepon_capipepo_attack.png', 5)
+    
+
+    let Pydos = new mokepon("Pydos", '/assets/mokepons_mokepon_ratigueya_attack.png', 5)
+    
+    mokepones.push(Hipodoge, Pydos, Capipepo)
+    console.log(mokepones)
+    console.log(mokepones.ataques)
+
+    Hipodoge.ataques.push(
+        {nombre: '💧', id:'boton-agua'},
+        {nombre: '💧', id:'boton-agua'},
+        {nombre: '💧', id:'boton-agua'},
+        {nombre: '🔥', id:'boton-fuego'},
+        {nombre: '🌱', id:'boton-tierra'}
+
+    )
+
+    Capipepo.ataques.push(
+        {nombre: '🌱', id:'boton-tierra'},
+        {nombre: '🌱', id:'boton-tierra'},
+        {nombre: '🌱', id:'boton-tierra'},
+        {nombre: '💧', id:'boton-agua'},
+        {nombre: '🔥', id:'boton-fuego'}
+
+    )
+
+    Pydos.ataques.push(
+        {nombre: '🔥', id:'boton-fuego'},
+        {nombre: '🔥', id:'boton-fuego'},
+        {nombre: '🔥', id:'boton-fuego'},
+        {nombre: '💧', id:'boton-agua'},
+        {nombre: '🌱', id:'boton-tierra'}
+
+    )
+
     
     window.addEventListener("load", iniciarJuego)
     
     function iniciarJuego() {
         
-        let selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
+        const selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
         selectionSeleccionarAtaque.style.display = `none`
         const btnMascota = document.getElementById('boton-mascota');
         const btnFuego = document.getElementById('boton-fuego');
@@ -16,14 +66,14 @@
         const btnTierra = document.getElementById('boton-tierra');
         const spanVidasJugador = document.getElementById('VidasJugador');
         const spanVidasEnemigo = document.getElementById('VidasEnemigo');
-        let inputHipodoge = document.getElementById("Hipodoge");
-        let inputCapipero = document.getElementById("Capipero");
-        let inputPydos = document.getElementById("Pydos");
-        let spanMascotaJugador = document.getElementById("mascotaJugador");
-        let botonReiniciar = document.getElementById("reiniciar");
-        let spanMascotaEnemigo = document.getElementById("mascotaEnemigo");
+        const inputHipodoge = document.getElementById("Hipodoge");
+        const inputCapipero = document.getElementById("Capipero");
+        const inputPydos = document.getElementById("Pydos");
+        const spanMascotaJugador = document.getElementById("mascotaJugador");
+        const botonReiniciar = document.getElementById("reiniciar");
+        const spanMascotaEnemigo = document.getElementById("mascotaEnemigo");
         const sectionMensajes = document.getElementById('resultado');
-        let selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
+        const selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
     
         btnMascota.addEventListener('click', seleccionarMascotaJugador);
         btnFuego.addEventListener('click', () => ataque('Fuego'));
@@ -68,16 +118,16 @@
         function combatir(ataqueJugador, ataqueEnemigo) {
             let resultado;
             if (ataqueJugador === ataqueEnemigo) {
-                resultado = 'EMPATE';
+                resultado = 'Empate ';
             } else if (
                 (ataqueJugador === 'Fuego' && ataqueEnemigo === 'Tierra') ||
                 (ataqueJugador === 'Agua' && ataqueEnemigo === 'Fuego') ||
                 (ataqueJugador === 'Tierra' && ataqueEnemigo === 'Agua')
             ) {
-                resultado = 'GANASTE';
+                resultado = 'Ganaste ';
                 vidasEnemigo--;
             } else {
-                resultado = 'PERDISTE';
+                resultado = 'Perdiste';
                 vidasJugador--;
             }
     
@@ -106,7 +156,7 @@
     
         function verificarFinJuego() {
             if (vidasJugador === 0) {
-                nuevoParrafo('¡Has perdido!');
+                nuevoParrafo('¡Has Perdido');
                 deshabilitarBotones();
             } else if (vidasEnemigo === 0) {
                 nuevoParrafo('¡Has ganado!');
