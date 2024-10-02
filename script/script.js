@@ -1,6 +1,9 @@
+    const contenedorTarjetas =document.getElementById("contenedorTarjetas")
+    
     let mokepones = []
     let ataqueJugador;
     let ataqueEnemigo;
+    let opciondeMokepones;
     let vidasJugador = 3;
     let vidasEnemigo = 3;
     const tipos = ['Fuego', 'Agua', 'Tierra'];
@@ -15,17 +18,10 @@
     }
 
     let Hipodoge = new mokepon("Hipodoge", '/assets/mokepons_mokepon_hipodoge_attack.png', 5)
-   
-
     let Capipepo = new mokepon("Capipepo", '/assets/mokepons_mokepon_capipepo_attack.png', 5)
-    
-
     let Pydos = new mokepon("Pydos", '/assets/mokepons_mokepon_ratigueya_attack.png', 5)
     
     mokepones.push(Hipodoge, Pydos, Capipepo)
-    console.log(mokepones)
-    console.log(mokepones.ataques)
-
     Hipodoge.ataques.push(
         {nombre: '💧', id:'boton-agua'},
         {nombre: '💧', id:'boton-agua'},
@@ -34,7 +30,6 @@
         {nombre: '🌱', id:'boton-tierra'}
 
     )
-
     Capipepo.ataques.push(
         {nombre: '🌱', id:'boton-tierra'},
         {nombre: '🌱', id:'boton-tierra'},
@@ -43,7 +38,6 @@
         {nombre: '🔥', id:'boton-fuego'}
 
     )
-
     Pydos.ataques.push(
         {nombre: '🔥', id:'boton-fuego'},
         {nombre: '🔥', id:'boton-fuego'},
@@ -56,6 +50,19 @@
     
     window.addEventListener("load", iniciarJuego)
     
+    mokepones.forEach(mokepon => {
+        opciondeMokepones = `
+            <section class=${mokepon.nombre} id=${mokepon.nombre}>
+                    <input type="radio" name="mascota" id=${mokepon.nombre}>
+                    <label class="mascota" for=${mokepon.nombre}>
+                        <p>${mokepon.nombre}</p>
+                        <img class=${mokepon.nombre} src=${mokepon.imagen} for=${mokepon.nombre}>
+                    </label>
+            </section>
+        `
+        contenedorTarjetas.innerHTML = opciondeMokepones    
+    });
+    
     function iniciarJuego() {
         
         const selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
@@ -67,8 +74,9 @@
         const spanVidasJugador = document.getElementById('VidasJugador');
         const spanVidasEnemigo = document.getElementById('VidasEnemigo');
         const inputHipodoge = document.getElementById("Hipodoge");
-        const inputCapipero = document.getElementById("Capipero");
+        const inputCapipepo = document.getElementById("Capipepo"); // Corregido de inputCapipero
         const inputPydos = document.getElementById("Pydos");
+
         const spanMascotaJugador = document.getElementById("mascotaJugador");
         const botonReiniciar = document.getElementById("reiniciar");
         const spanMascotaEnemigo = document.getElementById("mascotaEnemigo");
@@ -87,7 +95,7 @@
 
             if (inputHipodoge.checked) {
                 spanMascotaJugador.innerHTML = "Hipodoge";
-            } else if (inputCapipero.checked) {
+            } else if (inputCapipepo.checked) {
                 spanMascotaJugador.innerHTML = `Capipepo`;
             } else if (inputPydos.checked) {
                 spanMascotaJugador.innerHTML = `Pydos`;
