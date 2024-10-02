@@ -7,9 +7,9 @@
     window.addEventListener("load", iniciarJuego)
     
     function iniciarJuego() {
-        selectionSeleccionarAtaque.style.display = `none`
-
+        
         let selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
+        selectionSeleccionarAtaque.style.display = `none`
         const btnMascota = document.getElementById('boton-mascota');
         const btnFuego = document.getElementById('boton-fuego');
         const btnAgua = document.getElementById('boton-agua');
