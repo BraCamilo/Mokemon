@@ -63,26 +63,6 @@
         contenedorTarjetas.innerHTML = opciondeMokepones    
     });
     
-    function iniciarJuego() {
-        
-        const selectionSeleccionarAtaque = document.getElementById("Selcionar-ataque")
-        selectionSeleccionarAtaque.style.display = `none`
-        const btnMascota = document.getElementById('boton-mascota');
-        const btnFuego = document.getElementById('boton-fuego');
-        const btnAgua = document.getElementById('boton-agua');
-        const btnTierra = document.getElementById('boton-tierra');
-        const spanVidasJugador = document.getElementById('VidasJugador');
-        const spanVidasEnemigo = document.getElementById('VidasEnemigo');
-        const inputHipodoge = document.getElementById("Hipodoge");
-        const inputCapipepo = document.getElementById("Capipepo"); // Corregido de inputCapipero
-        const inputPydos = document.getElementById("Pydos");
-
-        const spanMascotaJugador = document.getElementById("mascotaJugador");
-        const botonReiniciar = document.getElementById("reiniciar");
-        const spanMascotaEnemigo = document.getElementById("mascotaEnemigo");
-        const sectionMensajes = document.getElementById('resultado');
-        const selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
-    
         btnMascota.addEventListener('click', seleccionarMascotaJugador);
         btnFuego.addEventListener('click', () => ataque('Fuego'));
         btnAgua.addEventListener('click', () => ataque('Agua'));
