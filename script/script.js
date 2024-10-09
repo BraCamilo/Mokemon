@@ -34,9 +34,9 @@ class mokepon {
     }
 }
 
-let Hipodoge = new mokepon("Hipodoge", '/assets/mokepons_mokepon_hipodoge_attack.png', 5)
-let Capipepo = new mokepon("Capipepo", '/assets/mokepons_mokepon_capipepo_attack.png', 5)
-let Pydos = new mokepon("Pydos", '/assets/mokepons_mokepon_ratigueya_attack.png', 5)
+let Hipodoge = new mokepon('Hipodoge', '/assets/mokepons_mokepon_hipodoge_attack.png', 5)
+let Capipepo = new mokepon('Capipepo', '/assets/mokepons_mokepon_capipepo_attack.png', 5)
+let Pydos = new mokepon('Pydos', '/assets/mokepons_mokepon_ratigueya_attack.png', 5)
 
 
 Hipodoge.ataques.push(
@@ -44,7 +44,7 @@ Hipodoge.ataques.push(
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '🔥', id: 'boton-fuego' },
-    { nombre: '🌱', id: 'boton-tierra' }
+    { nombre: '🌱', id: 'boton-tierra'}
 
 )
 Capipepo.ataques.push(
@@ -68,22 +68,20 @@ mokepones.push(Hipodoge, Pydos, Capipepo)
 function iniciarJuego() {
     selectionSeleccionarAtaque.style.display = `none`
 
-    mokepones.forEach(mokepon => {
+    mokepones.forEach((mokepon) => {
         opciondeMokepones = `
-            <section class=${mokepon.nombre} id=${mokepon.nombre}>
-                    <input type="radio" name="mascota" id=${mokepon.nombre}>
-                    <label class="mascota" for=${mokepon.nombre}>
-                        <p>${mokepon.nombre}</p>
-                        <img class=${mokepon.nombre} src=${mokepon.imagen} for=${mokepon.nombre}>
-                    </label>
-            </section>
+        <input type="radio" name="mascota" id=${mokepon.nombre}>
+        <label class="mascota" for=${mokepon.nombre}>
+            <p>${mokepon.nombre}</p>
+            <img class=${mokepon.nombre} src=${mokepon.imagen} for=${mokepon.nombre}>
+        </label>
         `
         contenedorTarjetas.innerHTML += opciondeMokepones
 
         inputHipodoge = document.getElementById("Hipodoge");
         inputCapipepo = document.getElementById("Capipepo");
         inputPydos = document.getElementById("Pydos");
-    });
+    })
 
     btnMascota.addEventListener('click', seleccionarMascotaJugador);
     btnFuego.addEventListener('click', () => ataque('Fuego'));
@@ -109,14 +107,8 @@ function seleccionarMascotaJugador() {
 }
 
 function seleccionarMascotaEnemigo() {
-    let mascotaAleatorio = aleatorio(1, 3);    
-    if (mascotaAleatorio == 1) {
-        spanMascotaEnemigo.innerHTML = "Hipodoge";
-    } else if (mascotaAleatorio == 2) {
-        spanMascotaEnemigo.innerHTML = "Capipepo";
-    } else {
-        spanMascotaEnemigo.innerHTML = "Pydos";
-    }
+    let mascotaAleatoria = aleatorio(0,mokepones -1)
+    spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
 }
 
 function ataque(ataqueJugador) {
