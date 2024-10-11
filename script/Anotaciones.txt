@@ -1,0 +1,3 @@
+PENDITES
+
+-Pantalla de carga de seleccionando mascota enemigo
