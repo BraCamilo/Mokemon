@@ -105,20 +105,26 @@ input:checked + label{
     padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 80px;
     color: white;
     box-shadow: 2px 2px 2px black;
-    
+    align-content: space-around;
+    justify-content: center;
 }
+    
 #boton-fuego:hover{
     background-color: rgba(255, 0, 0, 0.59);
+    align-items: center;
 }
 #boton-agua:hover{
     background-color: rgba(11, 155, 238, 0.59);
-    color: black;}
+    color: black;
+    
+}
 #boton-tierra:hover{
-    background-color: rgba(96, 74, 51, 0.70)
+    background-color: rgba(96, 74, 51, 0.70);
+    align-items: center;
 }
 
 #seccionDeLucha{
@@ -200,6 +206,7 @@ en las pantallas nuetra pagina que comienza en 0px hasta 360 px*/
     }
 
     .boton-ataque {
+        flex-direction: column;
         width: 100%; /* Make buttons full width */
     }
 
