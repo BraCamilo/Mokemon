@@ -14,11 +14,12 @@ const contenedorTarjetas = document.getElementById("contenedorTarjetas")
 
 let botones = []
 let mokepones = []
-let ataqueEnemigo
+let ataqueEnemigo = []
 let opciondeMokepones
 let inputCapipepo
 let inputPydos
 let inputHipodoge
+let ataquesMokeponEnemigo
 let mascotaJugador
 let opciondeAtaques
 let btnFuego
@@ -27,7 +28,6 @@ let btnAgua
 let btnTierra
 let vidasJugador = 3
 let vidasEnemigo = 3
-const tipos = ['Fuego', 'Agua', 'Tierra']
 
 class mokepon {
     constructor(nombre, imagen, vida) {
@@ -151,6 +151,7 @@ function secuenciaAtaque(){
                 ataqueJugador.push('TIERRA')
                 console.log(ataqueJugador)
             }
+            ataque()
          })
     })
 }
@@ -160,13 +161,22 @@ function secuenciaAtaque(){
 function seleccionarMascotaEnemigo() {
     let mascotaAleatoria = aleatorio(0,mokepones.length -1)
     spanMascotaEnemigo.innerHTML = mokepones[mascotaAleatoria].nombre
+
+    ataquesMokeponEnemigo = mokepones[mascotaAleatoria].ataques
     secuenciaAtaque()
 }
 
 function ataque(ataqueJugador) {
-    const ataqueAleatorio = tipos[Math.floor(Math.random() * tipos.length)];
-    ataqueEnemigo = ataqueAleatorio;
+    let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length -1)
 
+    if (ataqueAleatorio == 0 || ataqueAleatorio ==1){
+        ataqueEnemigo.push('FUEGO')
+    }else if(ataqueAleatorio == 3 || ataqueAleatorio == 4){
+        ataqueEnemigo.push('AGUA')
+    }else{
+        ataqueEnemigo.push('TIERRA')
+    }
+    console.log(ataqueEnemigo)
     combatir(ataqueJugador, ataqueEnemigo);
 }
 
