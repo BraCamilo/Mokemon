@@ -15,6 +15,8 @@ const contenedorTarjetas = document.getElementById("contenedorTarjetas")
 let botones = []
 let mokepones = []
 let ataqueEnemigo = []
+let indexAtaqueJugador
+let indexAtaqueEnemigo
 let opciondeMokepones
 let inputCapipepo
 let inputPydos
@@ -177,7 +179,45 @@ function ataque(ataqueJugador) {
         ataqueEnemigo.push('TIERRA')
     }
     console.log(ataqueEnemigo)
-    combatir(ataqueJugador, ataqueEnemigo);
+    iniciarPelea()
+    /* combatir(ataqueJugador, ataqueEnemigo); */
+}
+function iniciarPelea(){
+    if(ataqueJugador.length == 5){
+        combate()
+    }
+}
+
+function indexAmbosOponentes(jugador, enemigo){
+    indexAtaqueJugador = ataqueJugador[jugador]
+    indexAtaqueEnemigo = ataqueEnemigo[enemigo]
+}
+
+function combate() {
+    let resultado;
+    for (let index = 0; index < ataqueJugador.length; index++) {
+        if (ataqueJugador[index] == ataqueEnemigo[index]) {
+            indexAmbosOponentes(index, index)
+            resultado = 'Empate'
+            vidasJugador++
+            spanVidasJugador.innerHTML = vidasJugador
+        } else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA' ||
+            (ataqueJugador[index] === 'AGUA' && ataqueEnemigo[index] === 'FFUEGO') ||
+            (ataqueJugador[index] === 'TIERRA' && ataqueEnemigo === 'AGUA')
+        ) {
+            resultado = 'Ganaste'
+            vidasEnemigo--
+        } else {
+            resultado = 'Perdiste'
+            vidasJugador--
+        }
+        spanVidasJugador.textContent = vidasJugador;
+        spanVidasEnemigo.textContent = vidasEnemigo;
+
+        nuevoParrafo(resultado);
+        verificarFinJuego();
+
+    }
 }
 
 function aleatorio(min, max) {
@@ -185,28 +225,6 @@ function aleatorio(min, max) {
 }
 
 
-function combatir(ataqueJugador, ataqueEnemigo) {
-    let resultado;
-    if (ataqueJugador === ataqueEnemigo) {
-        resultado = 'Empate ';
-    } else if (
-        (ataqueJugador === 'Fuego' && ataqueEnemigo === 'Tierra') ||
-        (ataqueJugador === 'Agua' && ataqueEnemigo === 'Fuego') ||
-        (ataqueJugador === 'Tierra' && ataqueEnemigo === 'Agua')
-    ) {
-        resultado = 'Ganaste ';
-        vidasEnemigo--;
-    } else {
-        resultado = 'Perdiste';
-        vidasJugador--;
-    }
-
-    spanVidasJugador.textContent = vidasJugador;
-    spanVidasEnemigo.textContent = vidasEnemigo;
-
-    nuevoParrafo(resultado);
-    verificarFinJuego();
-}
 
 function verificarFinJuego() {
     if (vidasJugador === 0) {
