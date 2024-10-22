@@ -136,6 +136,14 @@ input:checked + label{
     height: max-content;
     color: white;
 }
+#verMapa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#mapa {
+    border: 2px solid white;
+}
 
 #seccionDeLucha, botonesDeAtaque {
     display: flex;

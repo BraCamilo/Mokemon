@@ -11,6 +11,8 @@ const spanMascotaEnemigo = document.getElementById("mascotaEnemigo");
 const sectionMensajes = document.getElementById('resultado');
 const selectionSeleccionarMascota = document.getElementById("selcionar-mascota")
 const contenedorTarjetas = document.getElementById("contenedorTarjetas")
+const seccionVerMapa = document.getElementById('verMapa')
+const mapa = document.getElementById('mapa')
 
 let botones = []
 let mokepones = []
@@ -32,6 +34,8 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 let victoriasJugador = 0
 let victoriasEnemigo = 0
+let lienzo = mapa.getContext('2d')
+let intervalo
 
 class mokepon {
     constructor(nombre, imagen, vida) {
@@ -39,6 +43,14 @@ class mokepon {
         this.imagen = imagen
         this.vida = vida
         this.ataques = []
+        this.x = 20
+        this.y = 30 
+        this.ancho = 80
+        this.alto = 80
+        this.mapaImg = new Image()
+        this.mapaImg.src = imagen
+        this.velocidadX = 0
+        this.velocidadY = 0
     }
 }
 
@@ -75,6 +87,7 @@ Pydos.ataques.push(
 mokepones.push(Hipodoge, Pydos, Capipepo)
 function iniciarJuego() {
     selectionSeleccionarAtaque.style.display = `none`
+    seccionVerMapa.style.display = 'none'
 
     mokepones.forEach((mokepon) => {
         opciondeMokepones = `
@@ -97,7 +110,11 @@ function iniciarJuego() {
 
 function seleccionarMascotaJugador() {            
     selectionSeleccionarMascota.style.display = `none`
-    selectionSeleccionarAtaque.style.display = `flex`    
+    //selectionSeleccionarAtaque.style.display = `flex`    
+    seccionVerMapa.style.display = 'flex'
+    intervalo = setInterval(pintarPersonaje, 50)
+
+
 
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
@@ -262,6 +279,35 @@ function nuevoParrafo(resultado) {
 function reiniciar() {
     location.reload();
 }
+function moverDerecha(){
+    Capipepo.velocidadX = 5
+}
+function moverArriba(){
+    Capipepo.velocidadY = -5
+}
+function moverAbajo(){
+    Capipepo.velocidadY = + 5
+}
+function moverIzquierda(){
+    Capipepo.velocidadX = - 5
+}
+function detenerMovimiento(){
+    Capipepo.velocidadX = 0
+    Capipepo.velocidadY = 0
+}
+function pintarPersonaje(){    
+    Capipepo.x = Capipepo.x + Capipepo.velocidadX
+    Capipepo.y = Capipepo.y + Capipepo.velocidadY
+    lienzo.clearRect(0, 0, mapa.width, mapa.clientHeight)
+    lienzo.drawImage(
+        Capipepo.mapaImg,
+        Capipepo.x,
+        Capipepo.y,
+        Capipepo.ancho,
+        Capipepo.alto
+    )
+}
+ 
 
 
 
