@@ -108,16 +108,8 @@ function iniciarJuego() {
     botonReiniciar.addEventListener("click", reiniciar);
 }
 
-function seleccionarMascotaJugador() {            
-    selectionSeleccionarMascota.style.display = `none`
-    //selectionSeleccionarAtaque.style.display = `flex`    
-    seccionVerMapa.style.display = 'flex'
-    intervalo = setInterval(pintarPersonaje, 50)
-
-    window.addEventListener('keydown', sePresionoUnaTecla)
-    window.addEventListener('keyup', detenerMovimiento)
-
-
+function seleccionarMascotaJugador() {
+    iniciarMapa()
 
     if (inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = inputHipodoge.id
@@ -330,8 +322,15 @@ function pintarPersonaje(){
         Capipepo.alto
     )
 }
- 
 
+function iniciarMapa() {
+    selectionSeleccionarMascota.style.display = `none`
+    //selectionSeleccionarAtaque.style.display = `flex`    
+    seccionVerMapa.style.display = 'flex'
+    intervalo = setInterval(pintarPersonaje, 50)
 
+    window.addEventListener('keydown', sePresionoUnaTecla)
+    window.addEventListener('keyup', detenerMovimiento)    
+}
 
 window.addEventListener("load", iniciarJuego)
