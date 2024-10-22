@@ -114,6 +114,9 @@ function seleccionarMascotaJugador() {
     seccionVerMapa.style.display = 'flex'
     intervalo = setInterval(pintarPersonaje, 50)
 
+    window.addEventListener('keydown', sePresionoUnaTecla)
+    window.addEventListener('keyup', detenerMovimiento)
+
 
 
     if (inputHipodoge.checked) {
@@ -294,6 +297,26 @@ function moverIzquierda(){
 function detenerMovimiento(){
     Capipepo.velocidadX = 0
     Capipepo.velocidadY = 0
+}
+function sePresionoUnaTecla(event){    
+    switch (event.key) {
+        case 'ArrowUp':
+            moverArriba()
+            break          
+        case 'ArrowDown':
+            moverAbajo()    
+            break
+        case 'ArrowRight':
+            moverDerecha()
+            break
+        case 'ArrowLeft':
+            moverIzquierda()
+            break
+        default:
+            break
+    }
+    
+
 }
 function pintarPersonaje(){    
     Capipepo.x = Capipepo.x + Capipepo.velocidadX
