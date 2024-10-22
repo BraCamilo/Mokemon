@@ -30,6 +30,8 @@ let btnAgua
 let btnTierra
 let vidasJugador = 3
 let vidasEnemigo = 3
+let victoriasJugador = 0
+let victoriasEnemigo = 0
 
 class mokepon {
     constructor(nombre, imagen, vida) {
@@ -168,7 +170,7 @@ function seleccionarMascotaEnemigo() {
     secuenciaAtaque()
 }
 
-function ataque(ataqueJugador) {
+function ataque() {
     let ataqueAleatorio = aleatorio(0, ataquesMokeponEnemigo.length -1)
 
     if (ataqueAleatorio == 0 || ataqueAleatorio ==1){
@@ -199,21 +201,20 @@ function combate() {
         if (ataqueJugador[index] == ataqueEnemigo[index]) {
             indexAmbosOponentes(index, index)
             resultado = 'Empate'
-            vidasJugador++
-            spanVidasJugador.innerHTML = vidasJugador
+            spanVidasJugador.innerHTML = victoriasJugador
         } else if (ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA' ||
-            (ataqueJugador[index] === 'AGUA' && ataqueEnemigo[index] === 'FFUEGO') ||
-            (ataqueJugador[index] === 'TIERRA' && ataqueEnemigo === 'AGUA')
+            (ataqueJugador[index] === 'AGUA' && ataqueEnemigo[index] === 'FUEGO') ||
+            (ataqueJugador[index] === 'TIERRA' && ataqueEnemigo[index] === 'AGUA')
         ) {
             resultado = 'Ganaste'
-            vidasEnemigo--
+            victoriasJugador++
+            spanVidasJugador.innerHTML = victoriasJugador
         } else {
             resultado = 'Perdiste'
-            vidasJugador--
+            indexAmbosOponentes(index, index)
+            victoriasEnemigo++
+            spanVidasEnemigo.innerHTML = victoriasEnemigo
         }
-        spanVidasJugador.textContent = vidasJugador;
-        spanVidasEnemigo.textContent = vidasEnemigo;
-
         nuevoParrafo(resultado);
         verificarFinJuego();
 
@@ -227,12 +228,14 @@ function aleatorio(min, max) {
 
 
 function verificarFinJuego() {
-    if (vidasJugador === 0) {
-        nuevoParrafo('¡Has Perdido');
+    if (victoriasJugador === victoriasEnemigo) {
+        nuevoParrafo('Han empatado!');
         deshabilitarBotones();
-    } else if (vidasEnemigo === 0) {
+    } else if (victoriasJugador > victoriasEnemigo) {
         nuevoParrafo('¡Has ganado!');
         deshabilitarBotones();
+    }else{
+        nuevoParrafo('Has perdido')
     }
 }
 
