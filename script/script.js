@@ -147,13 +147,19 @@ function secuenciaAtaque(){
          boton.addEventListener('click', (e) =>{//e = significa evento mismo
             if (e.target.textContent === '🔥') {
                 ataqueJugador.push('FUEGO')
-                console.log(ataqueJugador)                                
+                console.log(ataqueJugador)
+                boton.style.background = '#112f58'
+                boton.disabled = true;                               
             }else if(e.target.textContent === '💧'){
                 ataqueJugador.push('AGUA')
                 console.log(ataqueJugador)
+                boton.style.background = '#112f58'
+                boton.disabled = true;
             }else{
                 ataqueJugador.push('TIERRA')
                 console.log(ataqueJugador)
+                boton.style.background = '#112f58'
+                boton.disabled = true;
             }
             ataque()
          })
@@ -230,10 +236,8 @@ function aleatorio(min, max) {
 function verificarFinJuego() {
     if (victoriasJugador === victoriasEnemigo) {
         nuevoParrafo('Han empatado!');
-        deshabilitarBotones();
     } else if (victoriasJugador > victoriasEnemigo) {
         nuevoParrafo('¡Has ganado!');
-        deshabilitarBotones();
     }else{
         nuevoParrafo('Has perdido')
     }
@@ -259,10 +263,6 @@ function reiniciar() {
     location.reload();
 }
 
-function deshabilitarBotones() {
-    btnFuego.disabled = true;
-    btnAgua.disabled = true;
-    btnTierra.disabled = true;
-}
+
 
 window.addEventListener("load", iniciarJuego)
