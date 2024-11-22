@@ -396,7 +396,8 @@ function revisarColision(enemigo) {
     }
 
     detenerMovimiento()
-    alert("Hay colisión")
+    seccionVerMapa.style.display = 'none'
+    selectionSeleccionarAtaque.style.display = 'flex'
 }
 
 window.addEventListener("load", iniciarJuego)
