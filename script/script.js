@@ -341,10 +341,10 @@ function pintarCanvas(){
     HipodogeEnemigo.pintarMokepon() 
     PydosEnemigo.pintarMokepon()
     CapipepoEnemigo.pintarMokepon()
-    if (mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0) {
-        revisarColision(hipodogeEnemigo)
-        revisarColision(capipepoEnemigo)
-        revisarColision(ratigueyaEnemigo)
+    if(mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
+        revisarColision(HipodogeEnemigo)
+        revisarColision(PydosEnemigo)
+        revisarColision(CapipepoEnemigo)
     }
 
 }
@@ -375,7 +375,7 @@ function revisarColision(enemigo) {
     const arribaEnemigo = enemigo.y
     const abajoEnemigo = enemigo.y + enemigo.alto
     const derechaEnemigo = enemigo.x + enemigo.ancho
-    const izquierdaEnemigo = enemigo.x
+    const izquierdaEnemigo = enemigo.x 
 
     const arribaMascota = 
         mascotaJugadorObjeto.y
@@ -390,13 +390,13 @@ function revisarColision(enemigo) {
         abajoMascota < arribaEnemigo ||
         arribaMascota > abajoEnemigo ||
         derechaMascota < izquierdaEnemigo ||
-        izquierdaMascota > derechaEnemigo
-    ) {
+        izquierdaMascota >derechaEnemigo
+    ){
         return
     }
 
     detenerMovimiento()
-    alert("Hay colision" + enemigo.nombre)
+    alert("Hay colisión")
 }
 
 window.addEventListener("load", iniciarJuego)
