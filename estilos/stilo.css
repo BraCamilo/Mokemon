@@ -141,10 +141,16 @@ input:checked + label{
     align-items: center;
     justify-content: center;
 }
-#mapa {
+#ver-Mapa button{
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
     border: 2px solid white;
+    color: white;
+    font-family: 'popins', sans-serif;
+    margin-top: 30px;
 }
-
 #seccionDeLucha, botonesDeAtaque {
     display: flex;
     justify-content:center;
