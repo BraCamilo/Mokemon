@@ -46,8 +46,6 @@ class mokepon {
         this.imagen = imagen
         this.vida = vida
         this.ataques = []
-        this.x = x
-        this.y = y 
         this.ancho = 40
         this.alto = 40
         this.mapaImg = new Image()
