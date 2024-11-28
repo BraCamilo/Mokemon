@@ -15,6 +15,7 @@ const seccionVerMapa = document.getElementById('verMapa')
 const mapa = document.getElementById('mapa')
 
 let botones = []
+let jugadorId = null
 let mokepones = []
 let ataqueEnemigo = []
 let indexAtaqueJugador
@@ -160,6 +161,23 @@ function iniciarJuego() {
 
     btnMascota.addEventListener('click', seleccionarMascotaJugador);
     botonReiniciar.addEventListener("click", reiniciar);
+    uniserAlJuego()
+}
+
+function uniserAlJuego(){
+    //Dentro de Js, existe fitch, función la cual nos permite hacer uso de servicios que tengamos aparte
+    /* Access-Control-Allow-Origin, en este momento es posible que sucedan errores de crossOriginIsolated, puesto que al momento de inicializar el servidor, los navegadores no lo pueden tomar como algo inseguro ya que el archivo no esta en la misma pagina, pero esto se puede solicionar */
+    fetch("http://localhost:8080/unirse")
+        .then(function(res){
+            if(res.ok){
+                res.text()
+                .then(function(respuesta){
+                    console.log(respuesta);
+                    jugadorId = respuesta
+                    
+                })
+            }
+        })
 }
 
 function seleccionarMascotaJugador() {
@@ -176,8 +194,22 @@ function seleccionarMascotaJugador() {
         alert("Selecciona una Mascota");
     }
 
+    selecionarMokepon(mascotaJugador)
+
     extraerAtaques(mascotaJugador)
     iniciarMapa()
+}
+
+function selecionarMokepon(mascotaJugador){
+    fetch(`http://localhost:8080/mokemon/${jugadorId}`,{
+        method: "post",
+        headers: {
+            "Content-type": "aplication/json"
+        },
+        body: JSON.stringify({
+            mokepon: mascotaJugador
+        })
+    })
 }
 
 function extraerAtaques(mascotaJugador){
