@@ -165,8 +165,6 @@ function iniciarJuego() {
 }
 
 function uniserAlJuego(){
-    //Dentro de Js, existe fitch, función la cual nos permite hacer uso de servicios que tengamos aparte
-    /* Access-Control-Allow-Origin, en este momento es posible que sucedan errores de crossOriginIsolated, puesto que al momento de inicializar el servidor, los navegadores no lo pueden tomar como algo inseguro ya que el archivo no esta en la misma pagina, pero esto se puede solicionar */
     fetch("http://localhost:8080/unirse")
         .then(function(res){
             if(res.ok){
@@ -194,18 +192,19 @@ function seleccionarMascotaJugador() {
         alert("Selecciona una Mascota");
     }
 
-    selecionarMokepon(mascotaJugador)
-
+    seleccionarMokepon(mascotaJugador)
     extraerAtaques(mascotaJugador)
+    seccionVerMapa.style.display = 'flex'
     iniciarMapa()
 }
 
-function selecionarMokepon(mascotaJugador){
-    fetch(`http://localhost:8080/mokemon/${jugadorId}`,{
+function seleccionarMokepon(mascotaJugador){
+    fetch(`http://localhost:8080/mokepon/${jugadorId}`,{
         method: "post",
         headers: {
-            "Content-type": "aplication/json"
+            "Content-Type": "application/json"
         },
+                //lo convierte a cadena de texto
         body: JSON.stringify({
             mokepon: mascotaJugador
         })
@@ -407,6 +406,7 @@ function pintarCanvas(){
         mapa.height
     )
     mascotaJugadorObjeto.pintarMokepon()
+    enviarposicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
     HipodogeEnemigo.pintarMokepon() 
     PydosEnemigo.pintarMokepon()
     CapipepoEnemigo.pintarMokepon()
@@ -417,6 +417,20 @@ function pintarCanvas(){
     }
 
 }
+
+function enviarposicion(x,y){
+    fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+        method: "post",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            x,
+            y
+        })
+    })
+}
+
 function obtenerObjetoMascota(){
     for (let i = 0; i < mokepones.length; i++) {
         if (mascotaJugador === mokepones[i].nombre) {
