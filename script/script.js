@@ -137,7 +137,6 @@ PydosEnemigo.ataques.push(
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '🌱', id: 'boton-tierra' }
 
-)
 
 mokepones.push(Hipodoge, Pydos, Capipepo)
 function iniciarJuego() {
