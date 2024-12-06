@@ -80,62 +80,43 @@ class mokepon {
     }
 }
 
-let Hipodoge = new mokepon('Hipodoge', '/assets/mokepons_mokepon_hipodoge_attack.png', 5, '/assets/hipodoge.png')
-let Capipepo = new mokepon('Capipepo', '/assets/mokepons_mokepon_capipepo_attack.png', 5, '/assets/capipepo.png')
-let Pydos = new mokepon('Pydos', '/assets/mokepons_mokepon_ratigueya_attack.png', 5, '/assets/ratigueya.png')
-
-let HipodogeEnemigo = new mokepon('Hipodoge', '/assets/mokepons_mokepon_hipodoge_attack.png', 5, '/assets/hipodoge.png')
-let CapipepoEnemigo = new mokepon('Capipepo', '/assets/mokepons_mokepon_capipepo_attack.png', 5, '/assets/capipepo.png')
-let PydosEnemigo = new mokepon('Pydos', '/assets/mokepons_mokepon_ratigueya_attack.png', 5, '/assets/ratigueya.png')
+//Objetos mokepones
+let capipepo = new mokepon('Capipepo', './assets/mokepons_mokepon_capipepo_attack.png', 5, './assets/capipepo');
 
 
-Hipodoge.ataques.push(
+const HIPODOGE_ATAQUES = [
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '🔥', id: 'boton-fuego' },
     { nombre: '🌱', id: 'boton-tierra'}
+]
 
-)
-HipodogeEnemigo.ataques.push(
-    { nombre: '💧', id: 'boton-agua' },
-    { nombre: '💧', id: 'boton-agua' },
-    { nombre: '💧', id: 'boton-agua' },
-    { nombre: '🔥', id: 'boton-fuego' },
-    { nombre: '🌱', id: 'boton-tierra'}
-
-)
-
-Capipepo.ataques.push(
+const CAPIPEPO_ATAQUES = [
     { nombre: '🌱', id: 'boton-tierra' },
     { nombre: '🌱', id: 'boton-tierra' },
     { nombre: '🌱', id: 'boton-tierra' },
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '🔥', id: 'boton-fuego' }
 
-)
-CapipepoEnemigo.ataques.push(
-    { nombre: '🌱', id: 'boton-tierra' },
-    { nombre: '🌱', id: 'boton-tierra' },
-    { nombre: '🌱', id: 'boton-tierra' },
-    { nombre: '💧', id: 'boton-agua' },
-    { nombre: '🔥', id: 'boton-fuego' }
+]
 
-)
-Pydos.ataques.push(
+const PYDOS_ATAQUES = [
     { nombre: '🔥', id: 'boton-fuego' },
     { nombre: '🔥', id: 'boton-fuego' },
     { nombre: '🔥', id: 'boton-fuego' },
     { nombre: '💧', id: 'boton-agua' },
     { nombre: '🌱', id: 'boton-tierra' }
+]
 
-)
-PydosEnemigo.ataques.push(
-    { nombre: '🔥', id: 'boton-fuego' },
-    { nombre: '🔥', id: 'boton-fuego' },
-    { nombre: '🔥', id: 'boton-fuego' },
-    { nombre: '💧', id: 'boton-agua' },
-    { nombre: '🌱', id: 'boton-tierra' }
+Hipodoge.ataques.push(...HIPODOGE_ATAQUES)
+Capipepo.ataques.push(...CAPIPEPO_ATAQUES)
+Pydos.ataques.push(...PYDOS_ATAQUES)
+
+HipodogeEnemigo.ataques.push(...HIPODOGE_ATAQUES)
+CapipepoEnemigo.ataques.push(...CAPIPEPO_ATAQUES)
+PydosEnemigo.ataques.push(...PYDOS_ATAQUES)
+
 
 
 mokepones.push(Hipodoge, Pydos, Capipepo)
@@ -427,6 +408,26 @@ function enviarposicion(x,y){
             x,
             y
         })
+    })
+    .then(function(res){
+        if (res.ok){
+            res.json()
+            .then(function({enemigos}){
+                console.log(enemigos);
+                mokeponEnemigo = null
+                enemigos.forEach(function(enemigo){
+                    const mokeponNombre = enemigo.mokepon.nombre || ""
+                    if (mokeponNombre === "hipodoge"){
+                        mokeponEnemigo = new mokepon('Hipodoge', '/assets/mokepons_mokepon_hipodoge_attack.png', 5, '/assets/hipodoge.png')
+                    }else if(mokeponNombre === "capipepo"){
+                        mokeponEnemigo = new mokepon('Capipepo', '/assets/mokepons_mokepon_capipepo_attack.png', 5, '/assets/capipepo.png')
+                    }else if (pydos === "pydos"){
+                        mokeponEnemigo = new mokepon('Pydos', '/assets/mokepons_mokepon_ratigueya_attack.png', 5, '/assets/ratigueya.png')                
+                    }
+                    mokeponEnemigo.pintarMokepon()
+                })
+            })
+        }
     })
 }
 
